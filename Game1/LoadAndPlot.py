@@ -8,34 +8,6 @@ from g1qlearn import Game
 import matplotlib.pyplot as plt
 import numpy as np
 
-
-'''
-path='C:/Users/David/Desktop/Thesis/RL/model1'
-
-model=load_model(path)
-
-g=Game(canvasdim=(10,10),objnum=1,life=1)
-canvas0=g.observe()
-game_over=False
-
-
-count=0
-tt_rewards=0
-while not game_over:
-
-    canvas_input=canvas0.reshape(1,-1)
-    action=np.argmax(model.predict(canvas_input)[0])
-    canvas1,reward,game_over=g.take_action(action)
-    canvas0=canvas1
-    if reward>0:
-        tt_rewards+=reward
-    #print canvas1
-    plt.imshow(canvas1, cmap='gray')
-    plt.savefig('C:/Users/David/Desktop/Thesis/RL/img/'+"%03d.png" % count)
-    count+=1
-
-print 'Game Over! Overall rewards is: ',tt_rewards
-'''
 def save_imgs(imglist,save_path):
     count=0
     for img in imglist:
@@ -81,10 +53,3 @@ def play(model_path,game,save_img=True,save_img_path=None):
     if save_img:
         save_imgs(img_cache,save_img_path)              
         
-if __name__=="__main__":
-    path='C:/Users/David/Desktop/Thesis/RL/model2_1'
-    save_img_path='C:/Users/David/Desktop/Thesis/RL/img2/'
-    g=Game(canvasdim=(30,10),objnum=3,life=1)
-    
-    for i in range(10):
-        play(path, g, save_img=False,save_img_path=save_img_path)
