@@ -76,14 +76,3 @@ def retrain(model_path, epoch, game, memory, optimizer='RMSprop', loss='mse', ba
     print(model.summary())
     model=training(model,epoch, game, memory, optimizer=optimizer, loss=loss, batch_size=batch_size, epsilon=epsilon)
     return model
-
-if __name__=='__main__':
-    
-    g=Game(canvasdim=(30,10),objnum=3,life=1)
-    m=Memory(memory=1500)
-    
-    #model=model1((300,), 3)
-    #model=model2((30,10), 3)
-    #model=training(model, epoch=1000, game=g, memory=m)
-    model=retrain('C:/Users/David/Desktop/Thesis/RL/model1_1_1', epoch=1000, game=g, memory=m,batch_size=512)
-    model.save('C:/Users/David/Desktop/Thesis/RL/model1_1_1')
